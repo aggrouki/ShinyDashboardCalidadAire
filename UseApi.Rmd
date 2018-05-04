@@ -1,0 +1,700 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+#SET COLUMNAS
+```{r}
+
+ ColumNames<- list("Fecha"
+, "ConMP10_imputacion_media_Cerrillos"
+, "ConMP10_imputacion_media_Cerrovia"
+, "ConMP10_imputacion_media_ElBosque"
+, "ConMP10_imputacion_media_Independencia"
+, "ConMP10_imputacion_media_LaFlorida"
+, "ConMP10_imputacion_media_LasCondes"
+, "ConMP10_imputacion_media_ParqueOhiggins"
+, "ConMP10_imputacion_media_Pudahuel"
+, "ConMP10_imputacion_media_PuenteAlto"
+, "ConMP10_imputacion_media_Quilicura"
+, "ConMP10_imputacion_media_Talagante"
+, "ConMP25_imputacion_media_Cerrillos"
+, "ConMP25_imputacion_media_Cerrovia"
+, "ConMP25_imputacion_media_ElBosque"
+, "ConMP25_imputacion_media_Independencia"
+, "ConMP25_imputacion_media_LaFlorida"
+, "ConMP25_imputacion_media_LasCondes"
+, "ConMP25_imputacion_media_ParqueOhiggins"
+, "ConMP25_imputacion_media_Pudahuel"
+, "ConMP25_imputacion_media_PuenteAlto"
+, "ConMP25_imputacion_media_Quilicura"
+, "ConMP25_imputacion_media_Talagante"
+, "HR_imputacion_media_Cerrillos"
+, "HR_imputacion_media_Cerrovia"
+, "HR_imputacion_media_ElBosque"
+, "HR_imputacion_media_Independencia"
+, "HR_imputacion_media_LaFlorida"
+, "HR_imputacion_media_LasCondes"
+, "HR_imputacion_media_ParqueOhiggins"
+, "HR_imputacion_media_Pudahuel"
+, "HR_imputacion_media_PuenteAlto"
+, "HR_imputacion_media_Quilicura"
+, "HR_imputacion_media_Talagante"
+, "TEMP_imputacion_media_Cerrillos"
+, "TEMP_imputacion_media_Cerrovia"
+, "TEMP_imputacion_media_ElBosque"
+, "TEMP_imputacion_media_Independencia"
+, "TEMP_imputacion_media_LaFlorida"
+, "TEMP_imputacion_media_LasCondes"
+, "TEMP_imputacion_media_ParqueOhiggins"
+, "TEMP_imputacion_media_Pudahuel"
+, "TEMP_imputacion_media_PuenteAlto"
+, "TEMP_imputacion_media_Quilicura"
+, "TEMP_imputacion_media_Talagante"
+, "Temp_abs_Cerrillos"
+, "Temp_abs_Cerrovia"
+, "Temp_abs_ElBosque"
+, "Temp_abs_Independencia"
+, "Temp_abs_LaFlorida"
+, "Temp_abs_LasCondes"
+, "Temp_abs_ParqueOhiggins"
+, "Temp_abs_Pudahuel"
+, "Temp_abs_PuenteAlto"
+, "Temp_abs_Quilicura"
+, "Temp_abs_Talagante"
+, "VelViento_imputacion_media_Cerrillos"
+, "VelViento_imputacion_media_Cerrovia"
+, "VelViento_imputacion_media_ElBosque"
+, "VelViento_imputacion_media_Independencia"
+, "VelViento_imputacion_media_LaFlorida"
+, "VelViento_imputacion_media_LasCondes"
+, "VelViento_imputacion_media_ParqueOhiggins"
+, "VelViento_imputacion_media_Pudahuel"
+, "VelViento_imputacion_media_PuenteAlto"
+, "VelViento_imputacion_media_Quilicura"
+, "VelViento_imputacion_media_Talagante"
+, "DirViento_imputacion_media_Cerrillos"
+, "DirViento_imputacion_media_Cerrovia"
+, "DirViento_imputacion_media_ElBosque"
+, "DirViento_imputacion_media_Independencia"
+, "DirViento_imputacion_media_LaFlorida"
+, "DirViento_imputacion_media_LasCondes"
+, "DirViento_imputacion_media_ParqueOhiggins"
+, "DirViento_imputacion_media_Pudahuel"
+, "DirViento_imputacion_media_PuenteAlto"
+, "DirViento_imputacion_media_Quilicura"
+, "DirViento_imputacion_media_Talagante"
+, "ConSO2_imputacion_media_ElBosque"
+, "ConSO2_imputacion_media_Independencia"
+, "ConSO2_imputacion_media_LaFlorida"
+, "ConSO2_imputacion_media_ParqueOhiggins"
+, "ConSO2_imputacion_media_PuenteAlto"
+, "ConSO2_imputacion_media_Talagante"
+, "ConNO2_imputacion_media_Cerrillos"
+, "ConNO2_imputacion_media_Cerrovia"
+, "ConNO2_imputacion_media_ElBosque"
+, "ConNO2_imputacion_media_Independencia"
+, "ConNO2_imputacion_media_LaFlorida"
+, "ConNO2_imputacion_media_LasCondes"
+, "ConNO2_imputacion_media_ParqueOhiggins"
+, "ConNO2_imputacion_media_Pudahuel"
+, "ConNO2_imputacion_media_PuenteAlto"
+, "ConNO2_imputacion_media_Talagante"
+, "ConNO_imputacion_media_Cerrillos"
+, "ConNO_imputacion_media_Cerrovia"
+, "ConNO_imputacion_media_ElBosque"
+, "ConNO_imputacion_media_Independencia"
+, "ConNO_imputacion_media_LaFlorida"
+, "ConNO_imputacion_media_LasCondes"
+, "ConNO_imputacion_media_ParqueOhiggins"
+, "ConNO_imputacion_media_Pudahuel"
+, "ConNO_imputacion_media_PuenteAlto"
+, "ConNO_imputacion_media_Talagante"
+, "ConNOX_imputacion_media_Cerrillos"
+, "ConNOX_imputacion_media_Cerrovia"
+, "ConNOX_imputacion_media_ElBosque"
+, "ConNOX_imputacion_media_Independencia"
+, "ConNOX_imputacion_media_LaFlorida"
+, "ConNOX_imputacion_media_LasCondes"
+, "ConNOX_imputacion_media_ParqueOhiggins"
+, "ConNOX_imputacion_media_Pudahuel"
+, "ConNOX_imputacion_media_PuenteAlto"
+, "ConNOX_imputacion_media_Talagante"
+, "ConCO_imputacion_media_Cerrillos"
+, "ConCO_imputacion_media_Cerrovia"
+, "ConCO_imputacion_media_ElBosque"
+, "ConCO_imputacion_media_Independencia"
+, "ConCO_imputacion_media_LaFlorida"
+, "ConCO_imputacion_media_LasCondes"
+, "ConCO_imputacion_media_ParqueOhiggins"
+, "ConCO_imputacion_media_Pudahuel"
+, "ConCO_imputacion_media_PuenteAlto"
+, "ConCO_imputacion_media_Quilicura"
+, "ConCO_imputacion_media_Talagante"
+, "ConO3_imputacion_media_Cerrillos"
+, "ConO3_imputacion_media_Cerrovia"
+, "ConO3_imputacion_media_ElBosque"
+, "ConO3_imputacion_media_Independencia"
+, "ConO3_imputacion_media_LaFlorida"
+, "ConO3_imputacion_media_LasCondes"
+, "ConO3_imputacion_media_ParqueOhiggins"
+, "ConO3_imputacion_media_Pudahuel"
+, "ConO3_imputacion_media_PuenteAlto"
+, "ConO3_imputacion_media_Quilicura"
+, "ConO3_imputacion_media_Talagante"
+, "Movil_MP10_media_Cerrillos"
+, "Movil_MP10_media_Cerrovia"
+, "Movil_MP10_media_ElBosque"
+, "Movil_MP10_media_Independencia"
+, "Movil_MP10_media_LaFlorida"
+, "Movil_MP10_media_LasCondes"
+, "Movil_MP10_media_ParqueOhiggins"
+, "Movil_MP10_media_Pudahuel"
+, "Movil_MP10_media_PuenteAlto"
+, "Movil_MP10_media_Quilicura"
+, "Movil_MP10_media_Talagante"
+, "Movil_MP10_media_Cerrillos.1"
+, "Movil_MP10_media_Cerrovia.1"
+, "Movil_MP10_media_ElBosque.1"
+, "Movil_MP10_media_Independencia.1"
+, "Movil_MP10_media_LaFlorida.1"
+, "Movil_MP10_media_LasCondes.1"
+, "Movil_MP10_media_ParqueOhiggins.1"
+, "Movil_MP10_media_Pudahuel.1"
+, "Movil_MP10_media_PuenteAlto.1"
+, "Movil_MP10_media_Quilicura.1"
+, "Movil_MP10_media_Talagante.1"
+, "Categoria"
+, "Estacion"
+, "DiaHabil"
+, "Mes"
+, "DiaSema"
+, "ConMP10_imputacion_media_Cerrillos_1"
+, "ConMP10_imputacion_media_Cerrillos_2"
+, "ConMP10_imputacion_media_Cerrovia_1"
+, "ConMP10_imputacion_media_Cerrovia_2"
+, "ConMP10_imputacion_media_ElBosque_1"
+, "ConMP10_imputacion_media_ElBosque_2"
+, "ConMP10_imputacion_media_Independencia_1"
+, "ConMP10_imputacion_media_Independencia_2"
+, "ConMP10_imputacion_media_LaFlorida_1"
+, "ConMP10_imputacion_media_LaFlorida_2"
+, "ConMP10_imputacion_media_LasCondes_1"
+, "ConMP10_imputacion_media_LasCondes_2"
+, "ConMP10_imputacion_media_ParqueOhiggins_1"
+, "ConMP10_imputacion_media_ParqueOhiggins_2"
+, "ConMP10_imputacion_media_Pudahuel_1"
+, "ConMP10_imputacion_media_Pudahuel_2"
+, "ConMP10_imputacion_media_PuenteAlto_1"
+, "ConMP10_imputacion_media_PuenteAlto_2"
+, "ConMP10_imputacion_media_Quilicura_1"
+, "ConMP10_imputacion_media_Quilicura_2"
+, "ConMP10_imputacion_media_Talagante_1"
+, "ConMP10_imputacion_media_Talagante_2"
+, "ConMP25_imputacion_media_Cerrillos_1"
+, "ConMP25_imputacion_media_Cerrillos_2"
+, "ConMP25_imputacion_media_Cerrovia_1"
+, "ConMP25_imputacion_media_Cerrovia_2"
+, "ConMP25_imputacion_media_ElBosque_1"
+, "ConMP25_imputacion_media_ElBosque_2"
+, "ConMP25_imputacion_media_Independencia_1"
+, "ConMP25_imputacion_media_Independencia_2"
+, "ConMP25_imputacion_media_LaFlorida_1"
+, "ConMP25_imputacion_media_LaFlorida_2"
+, "ConMP25_imputacion_media_LasCondes_1"
+, "ConMP25_imputacion_media_LasCondes_2"
+, "ConMP25_imputacion_media_ParqueOhiggins_1"
+, "ConMP25_imputacion_media_ParqueOhiggins_2"
+, "ConMP25_imputacion_media_Pudahuel_1"
+, "ConMP25_imputacion_media_Pudahuel_2"
+, "ConMP25_imputacion_media_PuenteAlto_1"
+, "ConMP25_imputacion_media_PuenteAlto_2"
+, "ConMP25_imputacion_media_Quilicura_1"
+, "ConMP25_imputacion_media_Quilicura_2"
+, "ConMP25_imputacion_media_Talagante_1"
+, "ConMP25_imputacion_media_Talagante_2"
+, "HR_imputacion_media_Cerrillos_1"
+, "HR_imputacion_media_Cerrillos_2"
+, "HR_imputacion_media_Cerrovia_1"
+, "HR_imputacion_media_Cerrovia_2"
+, "HR_imputacion_media_ElBosque_1"
+, "HR_imputacion_media_ElBosque_2"
+, "HR_imputacion_media_Independencia_1"
+, "HR_imputacion_media_Independencia_2"
+, "HR_imputacion_media_LaFlorida_1"
+, "HR_imputacion_media_LaFlorida_2"
+, "HR_imputacion_media_LasCondes_1"
+, "HR_imputacion_media_LasCondes_2"
+, "HR_imputacion_media_ParqueOhiggins_1"
+, "HR_imputacion_media_ParqueOhiggins_2"
+, "HR_imputacion_media_Pudahuel_1"
+, "HR_imputacion_media_Pudahuel_2"
+, "HR_imputacion_media_PuenteAlto_1"
+, "HR_imputacion_media_PuenteAlto_2"
+, "HR_imputacion_media_Quilicura_1"
+, "HR_imputacion_media_Quilicura_2"
+, "HR_imputacion_media_Talagante_1"
+, "HR_imputacion_media_Talagante_2"
+, "TEMP_imputacion_media_Cerrillos_1"
+, "TEMP_imputacion_media_Cerrillos_2"
+, "TEMP_imputacion_media_Cerrovia_1"
+, "TEMP_imputacion_media_Cerrovia_2"
+, "TEMP_imputacion_media_ElBosque_1"
+, "TEMP_imputacion_media_ElBosque_2"
+, "TEMP_imputacion_media_Independencia_1"
+, "TEMP_imputacion_media_Independencia_2"
+, "TEMP_imputacion_media_LaFlorida_1"
+, "TEMP_imputacion_media_LaFlorida_2"
+, "TEMP_imputacion_media_LasCondes_1"
+, "TEMP_imputacion_media_LasCondes_2"
+, "TEMP_imputacion_media_ParqueOhiggins_1"
+, "TEMP_imputacion_media_ParqueOhiggins_2"
+, "TEMP_imputacion_media_Pudahuel_1"
+, "TEMP_imputacion_media_Pudahuel_2"
+, "TEMP_imputacion_media_PuenteAlto_1"
+, "TEMP_imputacion_media_PuenteAlto_2"
+, "TEMP_imputacion_media_Quilicura_1"
+, "TEMP_imputacion_media_Quilicura_2"
+, "TEMP_imputacion_media_Talagante_1"
+, "TEMP_imputacion_media_Talagante_2"
+, "Temp_abs_Cerrillos_1"
+, "Temp_abs_Cerrillos_2"
+, "Temp_abs_Cerrovia_1"
+, "Temp_abs_Cerrovia_2"
+, "Temp_abs_ElBosque_1"
+, "Temp_abs_ElBosque_2"
+, "Temp_abs_Independencia_1"
+, "Temp_abs_Independencia_2"
+, "Temp_abs_LaFlorida_1"
+, "Temp_abs_LaFlorida_2"
+, "Temp_abs_LasCondes_1"
+, "Temp_abs_LasCondes_2"
+, "Temp_abs_ParqueOhiggins_1"
+, "Temp_abs_ParqueOhiggins_2"
+, "Temp_abs_Pudahuel_1"
+, "Temp_abs_Pudahuel_2"
+, "Temp_abs_PuenteAlto_1"
+, "Temp_abs_PuenteAlto_2"
+, "Temp_abs_Quilicura_1"
+, "Temp_abs_Quilicura_2"
+, "Temp_abs_Talagante_1"
+, "Temp_abs_Talagante_2"
+, "VelViento_imputacion_media_Cerrillos_1"
+, "VelViento_imputacion_media_Cerrillos_2"
+, "VelViento_imputacion_media_Cerrovia_1"
+, "VelViento_imputacion_media_Cerrovia_2"
+, "VelViento_imputacion_media_ElBosque_1"
+, "VelViento_imputacion_media_ElBosque_2"
+, "VelViento_imputacion_media_Independencia_1"
+, "VelViento_imputacion_media_Independencia_2"
+, "VelViento_imputacion_media_LaFlorida_1"
+, "VelViento_imputacion_media_LaFlorida_2"
+, "VelViento_imputacion_media_LasCondes_1"
+, "VelViento_imputacion_media_LasCondes_2"
+, "VelViento_imputacion_media_ParqueOhiggins_1"
+, "VelViento_imputacion_media_ParqueOhiggins_2"
+, "VelViento_imputacion_media_Pudahuel_1"
+, "VelViento_imputacion_media_Pudahuel_2"
+, "VelViento_imputacion_media_PuenteAlto_1"
+, "VelViento_imputacion_media_PuenteAlto_2"
+, "VelViento_imputacion_media_Quilicura_1"
+, "VelViento_imputacion_media_Quilicura_2"
+, "VelViento_imputacion_media_Talagante_1"
+, "VelViento_imputacion_media_Talagante_2"
+, "DirViento_imputacion_media_Cerrillos_1"
+, "DirViento_imputacion_media_Cerrillos_2"
+, "DirViento_imputacion_media_Cerrovia_1"
+, "DirViento_imputacion_media_Cerrovia_2"
+, "DirViento_imputacion_media_ElBosque_1"
+, "DirViento_imputacion_media_ElBosque_2"
+, "DirViento_imputacion_media_Independencia_1"
+, "DirViento_imputacion_media_Independencia_2"
+, "DirViento_imputacion_media_LaFlorida_1"
+, "DirViento_imputacion_media_LaFlorida_2"
+, "DirViento_imputacion_media_LasCondes_1"
+, "DirViento_imputacion_media_LasCondes_2"
+, "DirViento_imputacion_media_ParqueOhiggins_1"
+, "DirViento_imputacion_media_ParqueOhiggins_2"
+, "DirViento_imputacion_media_Pudahuel_1"
+, "DirViento_imputacion_media_Pudahuel_2"
+, "DirViento_imputacion_media_PuenteAlto_1"
+, "DirViento_imputacion_media_PuenteAlto_2"
+, "DirViento_imputacion_media_Quilicura_1"
+, "DirViento_imputacion_media_Quilicura_2"
+, "DirViento_imputacion_media_Talagante_1"
+, "DirViento_imputacion_media_Talagante_2"
+, "ConSO2_imputacion_media_ElBosque_1"
+, "ConSO2_imputacion_media_ElBosque_2"
+, "ConSO2_imputacion_media_Independencia_1"
+, "ConSO2_imputacion_media_Independencia_2"
+, "ConSO2_imputacion_media_LaFlorida_1"
+, "ConSO2_imputacion_media_LaFlorida_2"
+, "ConSO2_imputacion_media_ParqueOhiggins_1"
+, "ConSO2_imputacion_media_ParqueOhiggins_2"
+, "ConSO2_imputacion_media_PuenteAlto_1"
+, "ConSO2_imputacion_media_PuenteAlto_2"
+, "ConSO2_imputacion_media_Talagante_1"
+, "ConSO2_imputacion_media_Talagante_2"
+, "ConNO2_imputacion_media_Cerrillos_1"
+, "ConNO2_imputacion_media_Cerrillos_2"
+, "ConNO2_imputacion_media_Cerrovia_1"
+, "ConNO2_imputacion_media_Cerrovia_2"
+, "ConNO2_imputacion_media_ElBosque_1"
+, "ConNO2_imputacion_media_ElBosque_2"
+, "ConNO2_imputacion_media_Independencia_1"
+, "ConNO2_imputacion_media_Independencia_2"
+, "ConNO2_imputacion_media_LaFlorida_1"
+, "ConNO2_imputacion_media_LaFlorida_2"
+, "ConNO2_imputacion_media_LasCondes_1"
+, "ConNO2_imputacion_media_LasCondes_2"
+, "ConNO2_imputacion_media_ParqueOhiggins_1"
+, "ConNO2_imputacion_media_ParqueOhiggins_2"
+, "ConNO2_imputacion_media_Pudahuel_1"
+, "ConNO2_imputacion_media_Pudahuel_2"
+, "ConNO2_imputacion_media_PuenteAlto_1"
+, "ConNO2_imputacion_media_PuenteAlto_2"
+, "ConNO2_imputacion_media_Talagante_1"
+, "ConNO2_imputacion_media_Talagante_2"
+, "ConNO_imputacion_media_Cerrillos_1"
+, "ConNO_imputacion_media_Cerrillos_2"
+, "ConNO_imputacion_media_Cerrovia_1"
+, "ConNO_imputacion_media_Cerrovia_2"
+, "ConNO_imputacion_media_ElBosque_1"
+, "ConNO_imputacion_media_ElBosque_2"
+, "ConNO_imputacion_media_Independencia_1"
+, "ConNO_imputacion_media_Independencia_2"
+, "ConNO_imputacion_media_LaFlorida_1"
+, "ConNO_imputacion_media_LaFlorida_2"
+, "ConNO_imputacion_media_LasCondes_1"
+, "ConNO_imputacion_media_LasCondes_2"
+, "ConNO_imputacion_media_ParqueOhiggins_1"
+, "ConNO_imputacion_media_ParqueOhiggins_2"
+, "ConNO_imputacion_media_Pudahuel_1"
+, "ConNO_imputacion_media_Pudahuel_2"
+, "ConNO_imputacion_media_PuenteAlto_1"
+, "ConNO_imputacion_media_PuenteAlto_2"
+, "ConNO_imputacion_media_Talagante_1"
+, "ConNO_imputacion_media_Talagante_2"
+, "ConNOX_imputacion_media_Cerrillos_1"
+, "ConNOX_imputacion_media_Cerrillos_2"
+, "ConNOX_imputacion_media_Cerrovia_1"
+, "ConNOX_imputacion_media_Cerrovia_2"
+, "ConNOX_imputacion_media_ElBosque_1"
+, "ConNOX_imputacion_media_ElBosque_2"
+, "ConNOX_imputacion_media_Independencia_1"
+, "ConNOX_imputacion_media_Independencia_2"
+, "ConNOX_imputacion_media_LaFlorida_1"
+, "ConNOX_imputacion_media_LaFlorida_2"
+, "ConNOX_imputacion_media_LasCondes_1"
+, "ConNOX_imputacion_media_LasCondes_2"
+, "ConNOX_imputacion_media_ParqueOhiggins_1"
+, "ConNOX_imputacion_media_ParqueOhiggins_2"
+, "ConNOX_imputacion_media_Pudahuel_1"
+, "ConNOX_imputacion_media_Pudahuel_2"
+, "ConNOX_imputacion_media_PuenteAlto_1"
+, "ConNOX_imputacion_media_PuenteAlto_2"
+, "ConNOX_imputacion_media_Talagante_1"
+, "ConNOX_imputacion_media_Talagante_2"
+, "ConCO_imputacion_media_Cerrillos_1"
+, "ConCO_imputacion_media_Cerrillos_2"
+, "ConCO_imputacion_media_Cerrovia_1"
+, "ConCO_imputacion_media_Cerrovia_2"
+, "ConCO_imputacion_media_ElBosque_1"
+, "ConCO_imputacion_media_ElBosque_2"
+, "ConCO_imputacion_media_Independencia_1"
+, "ConCO_imputacion_media_Independencia_2"
+, "ConCO_imputacion_media_LaFlorida_1"
+, "ConCO_imputacion_media_LaFlorida_2"
+, "ConCO_imputacion_media_LasCondes_1"
+, "ConCO_imputacion_media_LasCondes_2"
+, "ConCO_imputacion_media_ParqueOhiggins_1"
+, "ConCO_imputacion_media_ParqueOhiggins_2"
+, "ConCO_imputacion_media_Pudahuel_1"
+, "ConCO_imputacion_media_Pudahuel_2"
+, "ConCO_imputacion_media_PuenteAlto_1"
+, "ConCO_imputacion_media_PuenteAlto_2"
+, "ConCO_imputacion_media_Quilicura_1"
+, "ConCO_imputacion_media_Quilicura_2"
+, "ConCO_imputacion_media_Talagante_1"
+, "ConCO_imputacion_media_Talagante_2"
+, "ConO3_imputacion_media_Cerrillos_1"
+, "ConO3_imputacion_media_Cerrillos_2"
+, "ConO3_imputacion_media_Cerrovia_1"
+, "ConO3_imputacion_media_Cerrovia_2"
+, "ConO3_imputacion_media_ElBosque_1"
+, "ConO3_imputacion_media_ElBosque_2"
+, "ConO3_imputacion_media_Independencia_1"
+, "ConO3_imputacion_media_Independencia_2"
+, "ConO3_imputacion_media_LaFlorida_1"
+, "ConO3_imputacion_media_LaFlorida_2"
+, "ConO3_imputacion_media_LasCondes_1"
+, "ConO3_imputacion_media_LasCondes_2"
+, "ConO3_imputacion_media_ParqueOhiggins_1"
+, "ConO3_imputacion_media_ParqueOhiggins_2"
+, "ConO3_imputacion_media_Pudahuel_1"
+, "ConO3_imputacion_media_Pudahuel_2"
+, "ConO3_imputacion_media_PuenteAlto_1"
+, "ConO3_imputacion_media_PuenteAlto_2"
+, "ConO3_imputacion_media_Quilicura_1"
+, "ConO3_imputacion_media_Quilicura_2"
+, "ConO3_imputacion_media_Talagante_1"
+, "ConO3_imputacion_media_Talagante_2"
+, "Movil_MP10_media_Cerrillos_1"
+, "Movil_MP10_media_Cerrillos_2"
+, "Movil_MP10_media_Cerrovia_1"
+, "Movil_MP10_media_Cerrovia_2"
+, "Movil_MP10_media_ElBosque_1"
+, "Movil_MP10_media_ElBosque_2"
+, "Movil_MP10_media_Independencia_1"
+, "Movil_MP10_media_Independencia_2"
+, "Movil_MP10_media_LaFlorida_1"
+, "Movil_MP10_media_LaFlorida_2"
+, "Movil_MP10_media_LasCondes_1"
+, "Movil_MP10_media_LasCondes_2"
+, "Movil_MP10_media_ParqueOhiggins_1"
+, "Movil_MP10_media_ParqueOhiggins_2"
+, "Movil_MP10_media_Pudahuel_1"
+, "Movil_MP10_media_Pudahuel_2"
+, "Movil_MP10_media_PuenteAlto_1"
+, "Movil_MP10_media_PuenteAlto_2"
+, "Movil_MP10_media_Quilicura_1"
+, "Movil_MP10_media_Quilicura_2"
+, "Movil_MP10_media_Talagante_1"
+, "Movil_MP10_media_Talagante_2")
+
+
+
+```
+
+
+```{r}
+library(stringr)
+library(RCurl)
+library(rjson)
+library(bitops)
+## Leo el CSV
+
+Path<-"Final/datos.csv"
+Datos<-read.csv(Path)
+#Seleccionamos solo datos de Invierno
+Datos<-subset(Datos,Datos$Estacion=="Invierno") 
+#Seleciono el Ultimo Registro
+MaxId=max(Datos$X, na.rm = TRUE)
+#Selecciono la Ultima Fila
+UltimaFila<- subset(Datos, X == MaxId) # Saco la ultima fila del CSV
+
+UltimaFila[is.na(UltimaFila)] <- 0
+
+
+
+UltimaFila$X<-NULL  # Elimino la Columna
+UltimaFila$predecir<-NULL # Elimino la Columna
+
+Columnas<-as.list(colnames(UltimaFila)) # Creo lista con los nombres de Columnas
+Values<-as.list(as.vector(t(UltimaFila)[,1])) # Creo lista con 
+
+## Creo la Lista con la estructura que pide el Servicio.
+
+req = list(
+
+        Inputs = list(
+
+ 
+            "input1" = list(
+               "ColumnNames" = ColumNames,
+                "Values"= list(Values)
+               
+              
+            ))
+)
+
+body <- enc2utf8(toJSON(req))
+
+```
+
+
+
+```{r, echo=FALSE, eval=FALSE}
+library("RCurl")
+library("rjson")
+
+# Accept SSL certificates issued by public Certificate Authorities
+options(RCurlOptions = list(cainfo = system.file("CurlSSL", "cacert.pem", package = "RCurl")))
+
+h = basicTextGatherer()
+hdr = basicHeaderGatherer()
+
+api_key = "zhm4a/nYuTc+RfCAHA72AKs7x1lCsquGcKy4D5L3v6l7tEiKSB9E8omKBQn6+myr3oyjo9vZj1fqpHrDxmPiyg==" # Replace this with the API key for the web service
+authz_hdr = paste('Bearer', api_key, sep=' ')
+
+h$reset()
+curlPerform(url = "https://ussouthcentral.services.azureml.net/workspaces/4549cd344275400ab34cf7ca2a8e2722/services/f6a5ec14ed7944c483f00b74e211ff20/execute?api-version=2.0&details=true",
+            httpheader=c('Content-Type' = "application/json", 'Authorization' = authz_hdr),
+            postfields=body,
+            writefunction = h$update,
+            headerfunction = hdr$update,
+            verbose = TRUE
+            )
+
+headers = hdr$value()
+httpStatus = headers["status"]
+if (httpStatus >= 400)
+{
+    print(paste("The request failed with status code:", httpStatus, sep=" "))
+
+    # Print the headers - they include the requert ID and the timestamp, which are useful for debugging the failure
+    print(headers)
+}
+
+
+
+# Creacion del Nuevo Dataset
+
+
+
+result = h$value()
+
+
+json_data <- fromJSON(result)
+
+#Recupero los resultados
+
+
+a<- paste(as.character(trunc(round(as.double(json_data$Results$output1$value$Values[[1]][1]) * 100)))," %")
+b<- paste(as.character(trunc(round(as.double(json_data$Results$output1$value$Values[[1]][2]) * 100)))," %")
+c<- paste(as.character(trunc(round(as.double(json_data$Results$output1$value$Values[[1]][3]) * 100)))," %")
+d<- paste(as.character(trunc(round(as.double(json_data$Results$output1$value$Values[[1]][4]) * 100)))," %")
+#Summary
+x <- c( "Normal", "Alerta", "Pre Emergencia","Emergencia")
+y<-c(a,b,c,d)
+Resumen<-data.frame( "Score_Class" = x, "Probabilidad" = y)
+  
+
+PrediccionValue<-as.integer(json_data$Results$output1$value$Values[[1]][5])
+
+if (PrediccionValue==1)
+{
+  PrediccionData<-data.frame( "Class Type" = as.factor(1), "Descripción" = 'Normal')
+}
+if (PrediccionValue==2)
+{
+  PrediccionData<-data.frame( "Class Type" = as.factor(3), "Descripción" = 'Alerta')
+}
+if (PrediccionValue==3)
+{
+  PrediccionData<-data.frame( "Class Type" = as.factor(3), "Descripción" = 'Pre Emergencia')
+}
+if (PrediccionValue==4)
+{
+ PrediccionData<-data.frame( "Class Type" = as.factor(4), "Descripción" = 'Emergencia')
+}
+
+
+
+```
+
+##Chiny
+```{r}
+
+library(shinydashboard)
+library(leaflet)
+library(shiny)
+library(sp)
+library(rgdal)  # leer shapefiles
+
+
+
+
+ui <- dashboardPage(
+  dashboardHeader(title = "Calidad del Aire SMA"),
+ 
+  dashboardSidebar(),
+  dashboardBody(
+    
+    fluidPage(
+      # Give the page a title
+      titlePanel("Pronóstico de Calidad del Aire"),
+      sidebarLayout(position = "right",
+      mainPanel(leafletOutput("map")),
+      sidebarPanel( helpText("Nota: El pronostico a predecir corresponde al dia siguiente. La calidad del Aire se clasificaco en: Normal, Alerta, Pre Emergencia, Emergencia.", style="text-align:text-justify"),
+                    tags$br(),
+                    actionButton("button", "Predecir dia Siguiente", style="background-color:#008CBA;color:white", class="btn pull-center"),
+                    tags$br()
+                    ,tags$br()
+                    ,h5("Summary",style="font-weight: bold;")
+                    ,verbatimTextOutput("summary")
+                    ,tableOutput('table')
+                    ,h5("Predicción Final",style="font-weight: bold;")
+                    ,verbatimTextOutput("prediccion") 
+                    ,tableOutput("tablefinal")
+                   )
+     
+      
+     
+      )
+      
+    )
+    
+    # Boxes need to be put in a row (or column)
+   
+  )
+)
+
+server <- function(input, output) {
+  gs <-  readOGR(dsn = "Data/shape",
+                 layer = "division_comunal",
+                 encoding = "latin1",
+                 stringsAsFactors = FALSE)
+  
+  ngs <- subset(gs, gs$NOM_REG %in% c("Región Metropolitana de Santiago"))
+  ngs <- subset(gs, gs$NOM_PROV %in% c("Santiago"))
+  
+  ngs <- spTransform(ngs,CRS("+proj=longlat +datum=WGS84"))
+  
+
+  
+  ngs@data$Clasificacion=as.integer(PrediccionValue)
+  
+  HH_LL<- subset(ngs,NOM_REG=="Región Metropolitana de Santiago" & Clasificacion == 1 | Clasificacion == 2 | Clasificacion == 3 | Clasificacion == 4)
+  base_fil <- spTransform(HH_LL, CRS("+proj=longlat +datum=WGS84 +no_defs"))
+  
+  pal <- colorFactor(
+    palette = c('green','yellow','red', 'orange','red'),
+    domain = c(4,3,2,1)
+  )
+  
+  
+  filteredData <- reactive({
+    ngs
+  })
+  
+  
+  
+  output$map <- renderLeaflet({
+   
+      leaflet(data = base_fil) %>%
+      addProviderTiles(providers$CartoDB.Positron)%>%
+      addPolygons(
+        color = ~ pal(Clasificacion),
+        stroke = FALSE,
+        fillOpacity = 0.5,
+        label = ~ as.character(Clasificacion)
+      ) %>% 
+      addLegend("bottomright", 
+                colors =c('red', 'orange',"yellow",'green'),
+                labels= c("Emergencia", "Pre Emergencia","Alerta","Normal"),
+                title= "Clasificación Atmosferica",
+                opacity = 1)  
+  })
+ 
+  output$table <- renderTable(Resumen)
+  
+  output$tablefinal <- renderTable(PrediccionData)
+  
+  
+}
+
+shinyApp(ui, server)
+
+```
+
+
